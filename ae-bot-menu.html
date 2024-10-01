@@ -64,17 +64,12 @@
 
 <body>
     <main>
-        <div align="center">
-            <a href="https://ton.org/"><img width="48" src="./assets/tapps.png" alt="logo of telegram web apps"></a>
-        </div>
-        <h1>Modals</h1>
-        <button onclick="Telegram.WebApp.showAlert('Hello World!');">Launch Alert</button>
-        <button onclick="showPopup();">Launch Popup</button>
-
-
-        <h1>Buttons</h1>
-        <button onclick="Telegram.WebApp.expand();">Expand Webview</button>
-        <button onclick="toggleMainButton();">Toggle Main Button</button>
+        
+        <h1>Commands</h1>
+        <button id="alert_btn" onclick="Telegram.WebApp.showAlert('Hello World!');">Launch Alert</button>
+        <button id="popup_btn" onclick="showPopup();">Launch Popup</button>
+        <button id="qr_btn" onclick="showQrScan();">Scan QR code</button>
+        
     </main>
     <div id="viewport"></div>
     <div id="viewport-params-size"></div>
@@ -94,7 +89,7 @@
             text: 'Main Button'
         });
         Telegram.WebApp.MainButton.onClick(function () {
-            Telegram.WebApp.showAlert('Main Button was clicked')
+           Telegram.WebApp.close();
         });	
         Telegram.WebApp.MainButton.show();
 
@@ -131,8 +126,22 @@
             var expandEl = document.querySelector('#viewport-params-expand');
             expandEl.innerText = 'Is Expanded: ' + (Telegram.WebApp.isExpanded ? 'true' : 'false');
         }
-
+        function showScanQrPopup() {
+            Telegram.WebApp.showScanQrPopup({
+                text: "Scan QR on the package of your battery"
+            }, function (text) {
+                Telegram.WebApp.showAlert(text);
+                Telegram.WebApp.sendText(text);
+                return true;
+                }
+            )
+        }
+        
         Telegram.WebApp.setHeaderColor('secondary_bg_color');
+        document.getElementById('main_btn').style.display = 'block';
+        document.getElementById('alert_btn').style.display = 'block';
+        document.getElementById('popup_btn').style.display = 'block';
+        document.getElementById('qr_btn').style.display = 'block';
 
         setViewportData();
         Telegram.WebApp.onEvent('viewportChanged', setViewportData);
