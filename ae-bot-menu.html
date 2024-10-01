@@ -66,7 +66,7 @@
     <main>
         
         <h1>Commands</h1>
-        <button id="alert_btn" onclick="Telegram.WebApp.sendText('Hello World!');">Send silly message to yourself</button>
+        <button id="alert_btn" onclick="Telegram.WebApp.sendData('Hello World!');">Send silly message to yourself</button>
         <button id="popup_btn" onclick="showPopup();">Launch Popup</button>
         <button id="qr_btn" onclick="showScanQrPopup();">Scan QR code</button>
         
@@ -130,8 +130,9 @@
             Telegram.WebApp.showScanQrPopup({
                 text: "Scan QR on the package of your battery"
             }, function (text) {
+                Telegram.WebApp.sendData(text);
                 Telegram.WebApp.showAlert(text);
-                Telegram.WebApp.sendText(text);
+                Telegram.WebApp.sendData(text);
                 return true;
                 }
             )
