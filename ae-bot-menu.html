@@ -105,8 +105,8 @@
             }, async function(btn) {
                 console.log('Trying to fetch something')
                 if (btn === 'link') {
-                    const url = "ae-cloud.ru/spa/login";
-                    console.log(`Fetching $url`);
+                    const url = "ae-cloud.ru:8443/api/v1/iot/hi";
+                    console.log(`Fetching ${url}`);
 
                     const resp =  await (fetch(url));
                     // if (!resp.ok) {
