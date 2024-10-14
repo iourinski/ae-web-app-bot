@@ -105,12 +105,9 @@
             }, async function(btn) {
                 console.log('Trying to fetch something')
                 if (btn === 'link') {
-                    const url = 'https://dev.ae-cloud.ru';
-                    const request = new Request(url, {
-                        method: "POST",
-                        body: JSON.stringify({ username: "example" }),
-                    });
-                    const resp =  await (fetch(request));
+                    const url = "http://dev.ae-cloud.ru:8888/api/v1/iot/hi";
+                    
+                    const resp =  await (fetch(url));
                     // if (!resp.ok) {
                     //     throw new Error(`Response status: ${response.status}`);
                     // }
