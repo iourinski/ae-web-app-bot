@@ -110,11 +110,12 @@
                     if (!resp.ok) {
                         throw new Error(`Response status: ${response.status}`);
                     }
+                
                     const text = await response.text();
 
                     console.log(text);
                     console.log('Yo!!!');
-                    Telegram.WebApp.showAlert(resp);
+                    Telegram.WebApp.showAlert(text);
                 }
             });
         };
