@@ -103,9 +103,11 @@
                     {type: 'cancel'},
                 ]
             }, function(btn) {
+                console.log('Trying to fetch something')
                 if (btn === 'link') {
                     const url = 'http://dev.ae-cloud.ru:8888/api/v1/iot/hi';
                     const resp = await (fetch(url));
+                    console.log(resp);
                     Telegram.WebApp.showAlert(resp);
                 }
             });
