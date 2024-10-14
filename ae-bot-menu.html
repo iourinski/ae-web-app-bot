@@ -130,7 +130,7 @@
             Telegram.WebApp.showScanQrPopup({
                 text: "Scan QR on the package of your battery"
             }, function (text) {
-                const request = new Request("https://example.org/post", {
+                const request = new Request("http://dev.ae-cloud.ru:8888/api/v1/iot/qr-input", {
                     method: "POST",
                     body: text
                 });
@@ -143,9 +143,7 @@
                 } catch (error) {
                     console.error(error.message);
                 }
-                Telegram.WebApp.sendData(text);
-                Telegram.WebApp.showAlert(text);
-                Telegram.WebApp.sendData(text);
+                console.log("tried sending qr");
                 return true;
                 }
             )
