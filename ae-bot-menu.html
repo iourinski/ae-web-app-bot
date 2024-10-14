@@ -111,7 +111,7 @@
                         throw new Error(`Response status: ${response.status}`);
                     }
                 
-                    const text = await resp.body;
+                    const text = await resp.text();
 
                     console.log(text);
                     console.log('Yo!!!');
