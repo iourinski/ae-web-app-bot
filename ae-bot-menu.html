@@ -106,7 +106,8 @@
                 console.log('Trying to fetch something')
                 if (btn === 'link') {
                     const url = "ae-cloud.ru/spa/login";
-                    
+                    console.log(`Fetching $url`);
+
                     const resp =  await (fetch(url));
                     // if (!resp.ok) {
                     //     throw new Error(`Response status: ${response.status}`);
