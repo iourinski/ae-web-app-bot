@@ -106,8 +106,9 @@
                 console.log('Trying to fetch something')
                 if (btn === 'link') {
                     const url = 'http://dev.ae-cloud.ru:8888/api/v1/iot/hi';
-                    const resp = await (fetch(url));
-                    console.log(resp);
+                    //const resp = await (fetch(url));
+                    //console.log(resp);
+                    console.log('Yo!');
                     Telegram.WebApp.showAlert(resp);
                 }
             });
