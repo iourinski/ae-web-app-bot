@@ -102,7 +102,7 @@
                     {id: 'link', type: 'default', text: 'Check bot health'},
                     {type: 'cancel'},
                 ]
-            }, function(btn) {
+            }, async function(btn) {
                 console.log('Trying to fetch something')
                 if (btn === 'link') {
                     const url = "https://dev.ae-cloud.ru:8443/api/v1/iot/hi";
@@ -113,9 +113,9 @@
                     //     throw new Error(`Response status: ${response.status}`);
                     // }
                 
-                    const text =  resp.text();
+                    //const text =  resp.text();
 
-                    console.log(text);
+                    //console.log(text);
                     console.log('Yo!!!');
                     Telegram.WebApp.showAlert('Hi, I am ok');
                 }
