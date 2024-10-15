@@ -109,13 +109,13 @@
                     console.log(`Fetching ${url}`);
 
                     const resp =  await (fetch(url));
-                    // if (!resp.ok) {
-                    //     throw new Error(`Response status: ${response.status}`);
-                    // }
+                    if (!resp.ok) {
+                        throw new Error(`Response status: ${response.status}`);
+                    }
                 
-                    //const text =  resp.text();
+                    const text =  resp.text();
 
-                    console.log(resp);
+                    console.log(text);
                     console.log('Yo!!!');
                     Telegram.WebApp.showAlert('Hi, I am ok');
                 }
