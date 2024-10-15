@@ -141,14 +141,14 @@
         }
         function showScanQrPopup() {
             Telegram.WebApp.showScanQrPopup({
-                text: "Scan QR on the package of your battery"
-            }, function (text) {
-                const request = new Request("http://dev.ae-cloud.ru:8888/api/v1/iot/qr-input", {
+                text: "Scan QR on the package of your battery!"
+            }, async function (text) {
+                const request = new Request("http://dev.ae-cloud.ru:8443/api/v1/iot/qr-input", {
                     method: "POST",
                     body: text
                 });
                 try {
-                    const response = fetch(request);
+                    const response = await fetch(request);
                     console(response);
                     if (!response.ok) {                 
                         throw new Error(`Response status: ${response.status}`);
