@@ -109,6 +109,7 @@
                     console.log(`Fetching ${url}`);
 
                     const resp =  await (fetch(url));
+                    Telegram.WebApp.showAlert(resp);
                     if (!resp.ok) {
                         throw new Error(`Response status: ${response.status}`);
                     }
