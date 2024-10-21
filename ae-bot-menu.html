@@ -108,7 +108,7 @@
                     const url = "https://dev.ae-cloud.ru:8443/api/v1/iot/hi";
                     console.log(`Fetching ${url}`);
 
-                    const resp =  await (fetch(url));
+                    const resp =  (fetch(url));
                     Telegram.WebApp.showAlert(resp);
                     if (!resp.ok) {
                         throw new Error(`Response status: ${response.status}`);
