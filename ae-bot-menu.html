@@ -99,7 +99,7 @@
 
             const userData = Object.fromEntries(params);
             const user = userData.user = JSON.parse(userData.user);
-            console.log(user);
+            console.log(user.id);
             Telegram.WebApp.showPopup({
                 title: 'Healthcheck',
                 message: 'you can check if the bot backend is active',
@@ -111,7 +111,7 @@
                 console.log('Trying to fetch something')
                 if (btn === 'link') {
                     
-                    const url = "https://dev.ae-cloud.ru:8443/api/v1/iot/hi";
+                    const url = "https://dev.ae-cloud.ru:8443/api/v1/iot/hi/" + user.id;
                     console.log(`Fetching ${url}`);
 
                     const resp =  await (fetch(url));
