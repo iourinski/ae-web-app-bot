@@ -67,7 +67,7 @@
         
         <h1>Commands</h1>
         <!-- <button id="alert_btn" onclick="Telegram.WebApp.sendData('Hello World!');">Send silly message to yourself</button> -->
-        <button id="popup_btn" onclick="showPopup();">Bot healthcheck</button>
+        <button id="popup_btn" onclick="healthcheckPopup();">Bot healthcheck</button>
         <!-- <button id="qr_btn" onclick="showScanQrPopup();">Scan QR code</button> -->
 
     </main>
@@ -94,10 +94,9 @@
         Telegram.WebApp.MainButton.show();
 
         // Function to call showPopup API
-        function showPopup() {
+        function healthcheckPopup() {
             Telegram.WebApp.showPopup({
-                title: 'Title',
-                message: 'Silly Popup',
+                title: 'Healthcheck',
                 buttons: [
                     {id: 'link', type: 'default', text: 'Check bot health'},
                     {type: 'cancel'},
