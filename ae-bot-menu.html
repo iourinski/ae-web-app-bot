@@ -95,9 +95,10 @@
 
         // Function to call showPopup API
         function healthcheckPopup() {
+            console.log(window.Telegram.WebApp.initData)
             Telegram.WebApp.showPopup({
                 title: 'Healthcheck',
-                message: '',
+                message: 'you can check if the bot backend is active',
                 buttons: [
                     {id: 'link', type: 'default', text: 'Check bot health'},
                     {type: 'cancel'},
@@ -105,6 +106,7 @@
             }, async function(btn) {
                 console.log('Trying to fetch something')
                 if (btn === 'link') {
+                    
                     const url = "https://dev.ae-cloud.ru:8443/api/v1/iot/hi";
                     console.log(`Fetching ${url}`);
 
